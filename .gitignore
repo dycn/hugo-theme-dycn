@@ -1,0 +1,13 @@
+# Generated
+public/
+resources/_gen/
+.hugo_build.lock
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Node (if you add asset pipelines later)
+node_modules/

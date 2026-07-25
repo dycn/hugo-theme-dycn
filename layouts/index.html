@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Params.defaultLang | default "en" }}">
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+
+  {{- partial "toggles.html" . }}
+  {{- partial "hero.html" . }}
+  {{- partial "blog-section.html" . }}
+  {{- partial "about-panel.html" . }}
+
+  <div id="dycn-config"
+    data-config='{{ dict "defaultLang" (.Site.Params.defaultLang | default "en") "defaultTheme" (.Site.Params.defaultTheme | default "dark") "pageSize" (.Site.Params.pageSize | default 5) "i18n" hugo.Data.i18n "contacts" .Site.Params.contacts | jsonify | safeHTML }}'>
+  </div>
+  <script src="{{ "js/home.js" | relURL }}"></script>
+
+</body>
+
+</html>TESTMARKER

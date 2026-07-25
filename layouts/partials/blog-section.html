@@ -1,0 +1,50 @@
+<section class="blog-section" id="blogSection">
+    <div class="blog-section__inner">
+        <h2 data-i18n="blogTitle"></h2>
+
+        {{/* Collect unique tags from all pages */}}
+        {{ $allTags := slice }}
+        {{ range .Site.RegularPages }}
+        {{ with .Params.tags }}
+        {{ range . }}
+        {{ $allTags = $allTags | append . }}
+        {{ end }}
+        {{ end }}
+        {{ end }}
+        {{ $uniqueTags := $allTags | uniq }}
+
+        {{/* Tag filter bar */}}
+        {{ if $uniqueTags }}
+        <div class="tag-filter" id="tagFilter">
+            <button class="tag-filter__btn active" data-tag="*">All</button>
+            {{ range $uniqueTags }}
+            <button class="tag-filter__btn" data-tag="{{ . }}">{{ . }}</button>
+            {{ end }}
+        </div>
+        {{ end }}
+
+        {{/* Blog list (sorted by date descending) */}}
+        <ul class="blog-list" id="blogList">
+            {{ range .Site.RegularPages.ByWeight.Reverse.ByDate.Reverse }}
+            {{ $page := . }}
+            <li class="blog-item" data-tags="{{ delimit $page.Params.tags " ," }}">
+                <a href="{{ $page.RelPermalink }}">
+                    <div class="blog-item__cover">
+                        {{ with $page.Params.image }}
+                        <img src="{{ . | relURL }}" alt="{{ $page.Title }}" loading="lazy">
+                        {{ end }}
+                    </div>
+                    <div class="blog-item__body">
+                        <h3>{{ $page.Title }}</h3>
+                        <p>{{ $page.Description | default $page.Summary | plainify | truncate 60 }}</p>
+                        <time>{{ $page.Date.Format "2006-01-02" }}</time>
+                    </div>
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+
+        {{/* Pagination */}}
+        <div class="pagination" id="pagination"></div>
+    </div>
+</section>

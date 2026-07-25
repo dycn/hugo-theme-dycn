@@ -1,0 +1,145 @@
+:root {
+    --bg: #060606;
+    --mask-color: #060606;
+    --text-primary: #fff;
+    --text-secondary: #ccc;
+    --text-muted: #93979e;
+    --link: #b6b6b6;
+    --link-hover: #f6f6f6;
+    --card-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    --toggle-bg: rgba(255, 255, 255, 0.08);
+    --toggle-hover: rgba(255, 255, 255, 0.15);
+    --toggle-color: #ccc;
+    --avatar-border: #fff;
+    --code-bg: rgba(255, 255, 255, 0.06);
+    --code-border: rgba(255, 255, 255, 0.1);
+    --quote-border: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="light"] {
+    --bg: #e0e0e0;
+    --mask-color: #e0e0e0;
+    --text-primary: #222;
+    --text-secondary: #555;
+    --text-muted: #888;
+    --link: #666;
+    --link-hover: #333;
+    --card-shadow: 0 0 1px 1px rgba(0, 0, 0, .1);
+    --toggle-bg: rgba(0, 0, 0, 0.06);
+    --toggle-hover: rgba(0, 0, 0, 0.12);
+    --toggle-color: #666;
+    --avatar-border: #ddd;
+    --code-bg: rgba(0, 0, 0, 0.04);
+    --code-border: rgba(0, 0, 0, 0.1);
+    --quote-border: rgba(0, 0, 0, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    min-height: 100%;
+    background: var(--bg);
+    font-family: var(--font-family);
+    transition: background .3s;
+    color: var(--text-secondary);
+    overflow-x: hidden;
+}
+
+a,
+button,
+.toggle-btn {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link);
+    outline: 0;
+    transition: all .2s;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-shadow: 0 0 2px var(--link-hover);
+}
+
+/* ── Toggle bar ── */
+.toggles {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 999;
+    display: flex;
+    gap: 8px;
+}
+
+.toggle-btn {
+    background: var(--toggle-bg);
+    border: 1px solid transparent;
+    color: var(--toggle-color);
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all .25s;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.toggle-btn:hover {
+    background: var(--toggle-hover);
+    transform: scale(1.08);
+}
+
+.toggle-btn:active {
+    transform: scale(0.94);
+}
+
+.toggle-btn.lang-btn {
+    font-family: var(--font-family);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ── Back button ── */
+.back-bar {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 999;
+}
+
+.back-btn {
+    background: var(--toggle-bg);
+    border: 1px solid transparent;
+    color: var(--toggle-color);
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition: all .25s;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.back-btn:hover {
+    background: var(--bg);
+    transform: scale(1.05);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}

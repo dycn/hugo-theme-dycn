@@ -1,0 +1,32 @@
+# Runtime i18n table consumed by layouts/index.html, layouts/_default/single.html,
+# and layouts/404.html via `.Site.Data.i18n`. The whole table is JSON-injected into
+# #dycn-config and switched client-side by static/js/home.js (and article.js).
+#
+# To customise, drop your own data/i18n.toml in your project root — Hugo merges
+# project data over theme data, so project keys override these defaults.
+
+[en]
+  signature     = "Ordinary, but keep growing | Think then Do >> /dev/Todolist"
+  blog          = "Blog"
+  about         = "About"
+  github        = "GitHub"
+  blogTitle     = "Blog Posts"
+  aboutTitle    = "About Me"
+  aboutContent  = "Hello, I'm DYCN. Gopher coder.\nI'm working as a Go Backend Engineer in Beijing."
+  contact       = "Contact"
+  contactTitle  = "Get in Touch"
+  backHome      = "Home"
+  notFound      = "Page Not Found"
+
+[zh]
+  signature     = "自知凡庸，未曾止步 | 思而后行，行则入册"
+  blog          = "博客"
+  about         = "介绍"
+  github        = "GitHub"
+  blogTitle     = "博客文章"
+  aboutTitle    = "关于我"
+  aboutContent  = "你好，我是 DYCN。使用Go语言做开发。\n目前就职于北京一家公司做go服务器开发。"
+  contact       = "联系"
+  contactTitle  = "保持联系"
+  backHome      = "首页"
+  notFound      = "页面不存在"

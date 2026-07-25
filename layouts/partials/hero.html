@@ -1,0 +1,27 @@
+<section class="hero" id="hero">
+  <div class="hero__bg-wrapper" aria-hidden="true">
+    <div class="hero__bg" id="heroBg" style="background-image: url('{{ .Site.Params.backgroundImage | relURL }}');">
+    </div>
+  </div>
+  <canvas class="hero__mask" id="heroMask" aria-hidden="true"></canvas>
+
+  <div class="hero__content">
+    <div class="card-inner">
+      <header>
+        <img src="{{ .Site.Params.avatar }}" alt="avatar">
+        <h1 id="name">{{ .Site.Params.name }}</h1>
+        <h2 id="signature"></h2>
+      </header>
+      <ul>
+        {{ range .Site.Params.links }}
+        <li>
+          <a href="{{ .url }}" id="{{ if eq .nameKey "blog" }}blogLink{{ else if eq .nameKey "about" }}aboutLink{{ else if eq .nameKey "contact" }}contactLink{{ end }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
+            <i class="bi {{ .icon }}"></i>
+            <span data-i18n="{{ .nameKey }}"></span>
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</section>

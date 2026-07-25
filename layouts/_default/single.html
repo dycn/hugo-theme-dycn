@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Params.defaultLang | default "en" }}">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+
+    {{- partial "toggles.html" . }}
+
+    <div class="back-bar">
+        <a href="{{ "/" | relURL }}" class="back-btn">
+            <i class="bi bi-arrow-left"></i>
+            <span data-i18n="backHome">Back</span>
+        </a>
+    </div>
+
+    <article class="article-wrapper">
+        <header class="article-header">
+            <h1>{{ .Title }}</h1>
+            <div class="article-meta">
+                <div class="article-meta-row">
+                    <span><i class="bi bi-calendar3"></i> <time>{{ .Date.Format "2006-01-02" }}</time></span>
+                    <span><i class="bi bi-person"></i> {{ .Site.Params.name }}</span>
+                </div>
+                {{ with .Params.tags }}
+                <div class="article-tags">
+                    {{ range . }}
+                    <span class="tag">{{ . }}</span>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </header>
+
+        <hr class="article-divider">
+
+        <div class="article-content">
+            {{ .Content }}
+        </div>
+
+        <footer class="article-footer">
+            {{ $pages := .Site.RegularPages.ByWeight.Reverse.ByDate.Reverse }}
+            {{ $current := . }}
+            {{ $len := len $pages }}
+            {{ range $i, $page := $pages }}
+            {{ if eq $page $current }}
+            {{ if gt $i 0 }}
+            {{ with index $pages (sub $i 1) }}
+            <a href="{{ .RelPermalink }}" class="back-btn">
+                <i class="bi bi-arrow-left"></i>
+                <span>{{ .Title }}</span>
+            </a>
+            {{ end }}
+            {{ end }}
+            <a href="{{ "/" | relURL }}#blogSection" class="back-btn">
+                <i class="bi bi-house"></i>
+                <span data-i18n="backHome">Home</span>
+            </a>
+            {{ if lt (add $i 1) $len }}
+            {{ with index $pages (add $i 1) }}
+            <a href="{{ .RelPermalink }}" class="back-btn">
+                <span>{{ .Title }}</span>
+                <i class="bi bi-arrow-right"></i>
+            </a>
+            {{ end }}
+            {{ end }}
+            {{ end }}
+            {{ end }}
+        </footer>
+    </article>
+
+    <div id="dycn-config"
+        data-config='{{ dict "defaultLang" (.Site.Params.defaultLang | default "en") "defaultTheme" (.Site.Params.defaultTheme | default "dark") "i18n" hugo.Data.i18n | jsonify | safeHTML }}'>
+    </div>
+    <script src="{{ "js/article.js" | relURL }}"></script>
+
+</body>
+
+</html>

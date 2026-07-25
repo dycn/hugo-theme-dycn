@@ -1,0 +1,12 @@
+name        = "dycn"
+license     = "MIT"
+licenselink = "https://github.com/dycn/hugo-theme-dycn/blob/main/LICENSE"
+description = "A minimal personal homepage Hugo theme with ink-reveal dynamic background, Ken Burns animation, mouse parallax, blog list and about panel."
+homepage    = "https://github.com/dycn/hugo-theme-dycn"
+tags        = ["personal", "homepage", "minimal", "dark", "parallax", "blog"]
+features    = ["blog", "i18n", "dark-mode"]
+min_version = "0.120.0"
+
+[author]
+  name     = "dycn"
+  homepage = "https://github.com/dycn"
