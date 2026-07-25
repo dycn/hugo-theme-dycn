@@ -1,12 +1,12 @@
-baseURL      = "https://example.org/"
+baseURL      = "https://example.com/"
 locale       = "en"
-title        = "dycn example"
-theme        = "hugo-theme-dycn"
+title        = "DYCN"
+theme        = "dycn"
 
 [params]
   name            = "DYCN"
   avatar          = "/img/avatar.png"
-  backgroundImage = "/bg1080.jpg"
+  backgroundImage = "/img/bg1080.jpg"
   githubURL       = "https://github.com/dycn"
   defaultTheme    = "dark"
   defaultLang     = "en"
@@ -14,7 +14,7 @@ theme        = "hugo-theme-dycn"
   fontCDN         = "https://cdnjs.cloudflare.com/ajax/libs/comic-neue/2.2.1/comic-neue.min.css"
   fontFamily      = "'Comic Neue', sans-serif"
 
-  # i18n translations live in the theme's data/i18n.toml.
+  # i18n translations now live in themes/dycn/data/i18n.toml.
   # Override by placing your own data/i18n.toml in the project root.
 
   # ── Navigation links ──
@@ -47,7 +47,7 @@ theme        = "hugo-theme-dycn"
   [[params.contacts]]
     icon  = "bi-envelope-fill"
     label = "Email"
-    value = "aidencheung@foxmail.com"
+    value = "dycn@email.com"
 
   [[params.contacts]]
     icon  = "bi-twitter-x"
@@ -78,3 +78,5 @@ theme        = "hugo-theme-dycn"
     icon  = "bi-tencent-qq"
     label = "QQ"
     value = "123456789"
+
+
