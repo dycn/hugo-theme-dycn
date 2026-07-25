@@ -66,7 +66,10 @@ Available keys: `signature`, `blog`, `about`, `github`, `blogTitle`,
 
 ```bash
 cd hugo-theme-dycn
-hugo server -s exampleSite --themesDir ../..
+mkdir -p exampleSite/themes
+ln -s .. exampleSite/themes/dycn
+cd exampleSite
+hugo server
 ```
 
 Then visit http://localhost:1313/.
